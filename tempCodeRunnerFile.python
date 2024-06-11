@@ -1,0 +1,38 @@
+#User function Template for python3
+
+class Solution:
+	def AllPossibleStrings(self, s):
+		# Code here
+		
+		
+# 		print(' ',end='')
+
+		li=[]
+
+		def subs(string, ret=['']):
+			if len(string) == 0:
+				return ret
+			head, tail = string[0], string[1:]
+			ret = ret + list(map(lambda x: x+head, ret))
+			return subs(tail, ret)
+		li=(subs('abc'))
+		li.sort()
+		li.remove('')
+		return li
+        
+        
+        
+#{ 
+
+#Initial Template for Python 3
+
+if __name__ == '__main__':
+	T=int(input())
+	for i in range(T):
+		s = input()
+		ob = Solution();
+		ans = ob.AllPossibleStrings(s)
+		for i in ans:
+			print(i, end = " ");
+		print()
+# } Driver Code Ends
